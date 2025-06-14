@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_database/screens/form_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Test App DataBase',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-           backgroundColor: Color.fromARGB(255, 10, 168, 89),
-           foregroundColor: Color.fromARGB(255, 255, 255, 255)
+          backgroundColor: Color.fromARGB(255, 10, 168, 89),
+          foregroundColor: Color.fromARGB(255, 255, 255, 255),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
@@ -26,7 +27,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
   final String title;
 
   @override
@@ -36,17 +36,26 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          IconButton(icon: Icon(Icons.add), onPressed: (){
-
-          })
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return FormScreen();
+                  },
+                ),
+              );
+            },
+          ),
         ],
       ),
-      body: Container()
+      body: Container(),
     );
   }
 }
