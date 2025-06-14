@@ -6,8 +6,28 @@ class FormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("This is Page 2")),
-      body: Container(),
+      appBar: AppBar(title: Text("Data recording form")),
+      body: Form(
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: new InputDecoration(labelText: "ชื่อหนังสือ"),
+            ),
+            TextFormField(
+              decoration: new InputDecoration(labelText: "จำนวนเงิน"),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white, backgroundColor: Colors.purple, 
+              ),
+
+              onPressed: () {},
+
+              child: const Text('เพิ่มข้อมูล'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
